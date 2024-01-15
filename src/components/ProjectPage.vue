@@ -14,11 +14,14 @@ export default {
 <template>
   <main>
     <div class="container grid">
-      <div class="card card-post" v-for="(project, i) in   store.projects  ">
-        <img v-if="project.cover_image" :src="imgPath + project.cover_image" alt="">
-        <h3>{{ project.title }}</h3>
-        <strong v-if="project.category">{{ project.category.name }}</strong>
-        <ul v-for=" tech  in  project.technologies ">
+      <div class="card card-post" v-for="project in store.projects" :key="project.id">
+        <div v-if="project.cover_image">
+          <img :src="imgPath + project.cover_image" alt="">
+        </div>
+        <h3>Title: {{ project.title }}</h3>
+        <strong>Category: {{ project.category?.name ?? 'n.a.' }}</strong>
+        <p><strong>Tecnologies:</strong></p>
+        <ul v-for=" tech in project.technologies">
           <li>{{ tech.name }}</li>
         </ul>
       </div>
