@@ -5,6 +5,20 @@
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+img {
+    width: 150px;
+}
+
+ul {
+    list-style: none;
 }

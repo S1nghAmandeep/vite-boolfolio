@@ -13,13 +13,23 @@ export default {
 
 <template>
   <main>
-    <div class="container">
-      <div v-for="(project, i) in  store.projects ">
-        <h1>{{ project.title }}</h1>
-        <img :src="imgPath + project.cover_image" alt="">
+    <div class="container grid">
+      <div class="card card-post" v-for="(project, i) in   store.projects  ">
+        <img v-if="project.cover_image" :src="imgPath + project.cover_image" alt="">
+        <h3>{{ project.title }}</h3>
+        <strong v-if="project.category">{{ project.category.name }}</strong>
+        <ul v-for=" tech  in  project.technologies ">
+          <li>{{ tech.name }}</li>
+        </ul>
       </div>
     </div>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.card.card-post {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: bisque;
+}
+</style>
