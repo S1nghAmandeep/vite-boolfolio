@@ -1,39 +1,47 @@
 <script>
-import { store } from '../store'
+import axios from 'axios';
+import { store } from '../store';
 
 export default {
+    props: {
+        id: String,
+    },
     data() {
         return {
             store,
-            imgPath: 'http://127.0.0.1:8000/storage/'
+            imgPath: 'http://127.0.0.1:8000/storage/',
+            projectDeatil: null
         }
+    },
+    methods: {
+        fetchData() {
+            axios.get(`${this.store.apiProject}${this.id}`)
+                .then(res => {
+                    console.log(res)
+                    this.projectDeatil = res.data.results
+
+                })
+        }
+    },
+    created() {
+        this.fetchData()
     }
 }
 </script>
 
 <template>
-    <main>
-        <div class="container grid">
-            <div class="card card-post" v-for="project in store.projects" :key="project.id">
-                <div v-if="project.cover_image">
-                    <img :src="imgPath + project.cover_image" alt="">
-                </div>
-                <h3>Title: {{ project.title }}</h3>
-                <strong>Category: {{ project.category?.name ?? 'n.a.' }}</strong>
-                <p><strong>Tecnologies:</strong></p>
-                <ul v-for=" tech in project.technologies">
-                    <li>{{ tech.name }}</li>
-                </ul>
-            </div>
+    <div v-if="projectDeatil" class="container">
+        <h1>Id of project: {{ id }}</h1>
+        <h1>{{ projectDeatil.title }}</h1>
+        <div v-if="projectDeatil.cover_image">
+            <img :src="store.imgPath + projectDeatil.cover_image" alt="">
         </div>
-    </main>
+        <p>{{ projectDeatil.description }}</p>
+        <p><strong>Tecnologies:</strong></p>
+        <ul v-for=" tech in projectDeatil.technologies">
+            <li>{{ tech.name }}</li>
+        </ul>
+    </div>
 </template>
 
-<style scoped>
-.card.card-post {
-    padding: 20px;
-    border-radius: 8px;
-    background-color: bisque;
-}
-</style>
-
+<style scoped></style>
