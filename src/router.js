@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import AppHome from './pages/AppHome.vue'
+import AppIndex from './pages/AppIndex.vue'
 import AppShow from './pages/AppShow.vue'
 
 const router = createRouter({
@@ -12,9 +13,15 @@ const router = createRouter({
             component: AppHome
         },
         {
-            path: '/projects',
-            name: 'show',
-            component: AppShow
+            path: '/portfolio',
+            name: 'portfolio.index',
+            component: AppIndex
+        },
+        {
+            path: '/projects/:id',
+            name: 'projects.show',
+            component: AppShow,
+            props: true,
         }
     ]
 });
