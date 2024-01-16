@@ -2,11 +2,11 @@
 
 import axios from 'axios'
 import { store } from './store'
-import ProjectPage from './components/ProjectPage.vue'
+import AppHeader from './components/AppHeader.vue'
 
 export default {
   components: {
-    ProjectPage,
+    AppHeader,
   },
 
   data() {
@@ -32,7 +32,8 @@ export default {
 </script>
 
 <template>
-  <ProjectPage />
+  <AppHeader />
+  <router-view></router-view>
 </template>
 
 <style lang="scss">

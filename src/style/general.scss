@@ -12,7 +12,7 @@
 .grid {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 img {
@@ -23,13 +23,15 @@ ul {
     list-style: none;
 }
 
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
     .grid {
-        display: grid;
-        gap: 2rem;
         grid-template-columns: repeat(4, 1fr);
     }
 }
