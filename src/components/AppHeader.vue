@@ -24,7 +24,7 @@ export default {
             <div class="container">
                 <ul>
                     <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-                    <li><router-link :to="{ name: 'show' }">Show</router-link></li>
+                    <li><router-link :to="{ name: 'portfolio.index' }">Projects</router-link></li>
                 </ul>
             </div>
         </nav>
