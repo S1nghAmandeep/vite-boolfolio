@@ -10,16 +10,19 @@ export default {
         return {
             store,
             imgPath: 'http://127.0.0.1:8000/storage/',
-            projectDeatil: null
+            projectDetail: null
         }
     },
     methods: {
         fetchData() {
             axios.get(`${this.store.apiProject}${this.id}`)
                 .then(res => {
-                    console.log(res)
-                    this.projectDeatil = res.data.results
-
+                    // console.log(res)
+                    this.projectDetail = res.data.results
+                }).catch((error) => {
+                    if (error.response.status === 404) {
+                        this.$router.push({ name: 'not.found' })
+                    }
                 })
         }
     },
@@ -30,15 +33,15 @@ export default {
 </script>
 
 <template>
-    <div v-if="projectDeatil" class="container">
+    <div v-if="projectDetail" class="container">
         <h1>Id of project: {{ id }}</h1>
-        <h1>{{ projectDeatil.title }}</h1>
-        <div v-if="projectDeatil.cover_image">
-            <img :src="store.imgPath + projectDeatil.cover_image" alt="">
+        <h1>{{ projectDetail.title }}</h1>
+        <div v-if="projectDetail.cover_image">
+            <img :src="store.imgPath + projectDetail.cover_image" alt="">
         </div>
-        <p>{{ projectDeatil.description }}</p>
+        <p>{{ projectDetail.description }}</p>
         <p><strong>Tecnologies:</strong></p>
-        <ul v-for=" tech in projectDeatil.technologies">
+        <ul v-for=" tech in projectDetail.technologies">
             <li>{{ tech.name }}</li>
         </ul>
     </div>
