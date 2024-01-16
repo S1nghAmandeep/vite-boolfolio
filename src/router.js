@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from './pages/AppHome.vue'
 import AppIndex from './pages/AppIndex.vue'
 import AppShow from './pages/AppShow.vue'
+import PageError from './pages/PageError.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -22,6 +23,11 @@ const router = createRouter({
             name: 'projects.show',
             component: AppShow,
             props: true,
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not.found',
+            component: PageError
         }
     ]
 });
