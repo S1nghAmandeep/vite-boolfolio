@@ -4,7 +4,8 @@ import { store } from '../store';
 
 export default {
     props: {
-        id: String,
+        // id: String,
+        slug: String,
     },
     data() {
         return {
@@ -15,7 +16,8 @@ export default {
     },
     methods: {
         fetchData() {
-            axios.get(`${this.store.apiProject}${this.id}`)
+            // axios.get(`${this.store.apiProject}${this.id}`)
+            axios.get(`${this.store.apiProject}${this.slug}`)
                 .then(res => {
                     // console.log(res)
                     this.projectDetail = res.data.results
@@ -34,8 +36,9 @@ export default {
 
 <template>
     <div v-if="projectDetail" class="container">
-        <h1>Id of project: {{ id }}</h1>
+        <!-- <h1>Id of project: {{ id }}</h1> -->
         <h1>{{ projectDetail.title }}</h1>
+        <h4>{{ slug }}</h4>
         <div v-if="projectDetail.cover_image">
             <img :src="store.imgPath + projectDetail.cover_image" alt="">
         </div>

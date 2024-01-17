@@ -16,16 +16,7 @@ export default {
   },
 
   methods: {
-    getProjects() {
-      axios.get(this.store.apiProject).then((res) => {
-        // console.log(res)
-        this.store.projects = res.data.results;
-        console.log(this.store.projects);
-      })
-    }
-  },
-  created() {
-    this.getProjects();
+
   }
 }
 

@@ -19,7 +19,8 @@ const router = createRouter({
             component: AppIndex
         },
         {
-            path: '/projects/:id',
+            // path: '/projects/:id',
+            path: '/projects/:slug',
             name: 'projects.show',
             component: AppShow,
             props: true,
