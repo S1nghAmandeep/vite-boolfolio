@@ -4,6 +4,7 @@ import AppHome from './pages/AppHome.vue'
 import AppIndex from './pages/AppIndex.vue'
 import AppShow from './pages/AppShow.vue'
 import PageError from './pages/PageError.vue'
+import AddProject from './pages/AppAddProject.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,11 @@ const router = createRouter({
             path: '/portfolio',
             name: 'portfolio.index',
             component: AppIndex
+        },
+        {
+            path: '/add.project',
+            name: 'new.project',
+            component: AddProject
         },
         {
             // path: '/projects/:id',

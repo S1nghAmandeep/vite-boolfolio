@@ -22,10 +22,10 @@ export default {
                     page: this.page
                 }
             }).then((res) => {
-                console.log(res)
+                // console.log(res)
                 this.store.projects = res.data.results.data;
                 this.lastPage = res.data.results.last_page;
-                console.log(this.store.projects);
+                // console.log(this.store.projects);
             })
         },
         getPage() {
