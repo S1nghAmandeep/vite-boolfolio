@@ -59,35 +59,35 @@ export default {
             <p>Select the Technologies:</p>
             <div class="mb-3 d-flex flex-wrap gap-4">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="1" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="1">
                     <label class="form-check-label" for="">css</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="8" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="8">
                     <label class="form-check-label" for="">java</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="3" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="3">
                     <label class="form-check-label" for="">javascript</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="6" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="6">
                     <label class="form-check-label" for="">laravel</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="7" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="7">
                     <label class="form-check-label" for="">php</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="5" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="5">
                     <label class="form-check-label" for="">react</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="2" id="">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="2">
                     <label class="form-check-label" for="">scss</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="1" id="4">
+                    <input class="form-check-input" type="checkbox" v-model="project.technologies" value="4">
                     <label class="form-check-label" for="">vue</label>
                 </div>
             </div>
