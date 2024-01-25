@@ -8,20 +8,22 @@ export default {
                 category_id: '',
                 technologies: [],
                 description: '',
-                cover_image: '',
+                cover_image: null,
             },
         }
     },
     methods: {
         fetchData() {
-            // console.log('mandato')
-            // this.project.cover_image = new FormData();
-            // const file = document.getElementById('cover_image').files[0]
+            const file = document.getElementById('cover_image').files[0]
             // console.log(file);
 
-            // this.project.cover_image.append('cover_image', file)
+            this.project.cover_image = file
             // console.log(this.project.cover_image);
-            axios.post('http://127.0.0.1:8000/api/projects', this.project
+            axios.post('http://127.0.0.1:8000/api/projects', this.project, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            }
             ).then(res => {
                 console.log(res.data);
             })
